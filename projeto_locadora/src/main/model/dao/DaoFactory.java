@@ -1,12 +1,12 @@
 package main.model.dao;
 
 import main.db.DB;
-import main.model.dao.impl.ClienteDaoJDBC;
+import main.model.dao.impl.UsuarioDaoJDBC;
 
 public interface DaoFactory {
 
-    public static ClienteDao createClienteDao(){
-        return new ClienteDaoJDBC(DB.getConexao());
+    public static UsuarioDao createUsuarioDao(){
+        return new UsuarioDaoJDBC(DB.getConexao());
     }
-
+    //public static FilmeDao creatFilmeDao() { return new FilmeDaoJDBC(DB.getConexao())};
 }

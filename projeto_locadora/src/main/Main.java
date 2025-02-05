@@ -1,33 +1,35 @@
 package main;
 
-import main.model.dao.impl.ClienteDaoJDBC;
-import main.model.entities.Cliente;
+import main.model.dao.impl.UsuarioDaoJDBC;
+import main.model.entities.Usuario;
 
-import java.sql.Date;
-import java.time.LocalDate;
+import java.sql.SQLException;
 
 import static main.db.DB.*;
 
 public class Main {
-    public static void main(String[] args) {
-        ClienteDaoJDBC clienteDao = new ClienteDaoJDBC(getConexao());
+    public static void main(String[] args) throws SQLException {
+        UsuarioDaoJDBC usuarioDao = new UsuarioDaoJDBC(getConexao());
 
-        Cliente cliente = new Cliente(); //Criando cliente
+        /*Usuario cliente = new Usuario();
+        cliente.setNome("João Silva");
+        cliente.setEmail("joão@gmail.com");
+        cliente.setSenha("1234");
+        cliente.setTipo("cliente");
+        cliente.setUsername("Joaopombao");
 
-        //cliente.setCpf("123.456.789-00");
+        usuarioDao.inserir(cliente);
 
-        /*cliente.setNome("Lara Beatriz");
-        cliente.setCpf("123.456.789-00");
-        cliente.setData_nascimento(Date.valueOf(LocalDate.of(1995, 8, 15))); // Definindo uma data de nascimento
-        cliente.setEndereco("Rua das Flores, 123");
-        cliente.setTelefone("91234-5678");
-        cliente.setEmail("joao@email.com");
-        cliente.setSaldo(500.00f);*/
+        System.out.println("Cliente cadastrado: " + cliente.getNome());*/
 
-        //clienteDao.deletarPorID(2);
-        //clienteDao.inserir(cliente);
-        clienteDao.procurarPorCPF("123.456.789-00");
-        closeConexao();
+        Usuario admin = new Usuario();
+        admin.setNome("Maria Silva");
+        admin.setEmail("maria@gmail.com");
+        admin.setSenha("4321");
+        admin.setTipo("admin");
+        admin.setUsername("mariaprikituda");
+        usuarioDao.inserir(admin);
+        System.out.println("Administrador cadastrado: " + admin.getNome());
 
     }
 }

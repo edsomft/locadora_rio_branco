@@ -9,7 +9,7 @@ public class DB {
         if(conexao ==null){
             try {
                 conexao = DriverManager.getConnection
-                        ("jdbc:mysql://localhost:3306/locadora","root","edson12@3");
+                        ("jdbc:mysql://localhost:3306/locadora_rio_branco","root","edson12@3");
                 System.out.println("Conexão bem-sucedida!");
             } catch (SQLException e) {
                 throw new RuntimeException(e);
